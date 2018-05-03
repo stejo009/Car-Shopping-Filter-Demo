@@ -1,0 +1,227 @@
+
+
+
+
+
+
+<!-- <app-agularmaterialdemo>
+</app-agularmaterialdemo> -->
+<div class="container-fluid">
+    <h5>Car Dashboard</h5>
+    <div class="row">
+
+    <div class="col-md-3"  >
+
+            <mat-vertical-stepper [linear]="isLinear" #stepper="matVerticalStepper">
+
+                
+                    <mat-step [stepControl]="firstFormGroup">
+                      <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>Please Select Car</ng-template>
+                        
+                        <!-- <div class="col-md-12">
+                            <img src="http://www.animatedimages.org/data/media/67/animated-car-image-0144.gif" height="100px" class="img-responsive">
+                          </div> -->
+                        <div class="col-md-12">
+                            <button mat-raised-button  color="primary" (click)="gerFilteredCars('BMW', 'Buick', 'Mazda', 'Chevrolet')" >All Cars</button>
+                        </div>
+                        <br>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button matStepperNext>Next</button>
+                        <!-- <div class="col-md-12" *ngFor="let car of carbtn">
+                                <button mat-raised-button matStepperNext color="primary" (click)="gerFilteredCars(car.name)" >{{car.name}}</button>
+                         </div> -->
+                      </form>
+                    </mat-step>
+    
+    
+                    <mat-step [stepControl]="secondFormGroup">
+                      <form [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel>Plese Select Car Color</ng-template>
+                        <div class="col-md-12">
+                                <!-- this is select lsit in angular material -->
+                              <mat-form-field>
+                                    <mat-select placeholder="Select car color">
+                                      <mat-option *ngFor="let car of carcolorbtn" (click)="getFilteredCars(car)"  [value]="car.color">
+                                        {{ car.color }}
+                                      </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                              </div>
+                              <div>
+                          <button mat-button matStepperPrevious>Back</button>
+                          <button mat-button matStepperNext>Next</button>
+                        </div>
+                      </form>
+                    </mat-step>
+    
+    
+                    <mat-step [stepControl]="secondFormGroup">
+                        <form [formGroup]="secondFormGroup">
+                          <ng-template matStepLabel>Please Select Car Colors</ng-template>
+                                <p>Select Color:</p>
+                                <div  *ngFor="let car of carcolorbtn">
+                                    <!-- this is material checkbox for color sorting -->
+                                  <mat-checkbox role="button" (click)="getFilteredCars(car)">{{car.color}}</mat-checkbox>
+                                </div>
+                          <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                          </div>
+                        </form>
+                      </mat-step>
+    
+                    <mat-step>
+                      <ng-template matStepLabel>Car Search Completed</ng-template>
+                      You are now done.
+                      <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="stepper.reset()">Reset</button>
+                      </div>
+                    </mat-step>
+                  </mat-vertical-stepper>
+
+
+
+
+
+        <!--p <div class="col-md-12" *ngFor="let car of carbtn">
+                  <button mat-raised-button color="primary" (click)="gerFilteredCars(car)" >{{car}}</button>
+        </div> -->
+    
+        <!-- <p>select color:<br></p>
+          <button class="btn btn-primary btn-block" *ngFor="let car of carcolorbtn" (click)="getFilteredCars(car)">{{car.color}}</button>    
+          <br> -->
+          <!-- <p>Select Car</p>
+          <select>
+              <option *ngFor="let car of carbtn" (click)="gerFilteredCars(car)">{{car}}</option>
+          </select> -->
+         
+          <!--this is bootstrap checkbox group using bootstrap 
+              <p>select color:</p>
+          <select>
+              <option *ngFor="let car of carcolorbtn"  (click)="getFilteredCars(car)">{{car.color}}</option>
+          </select> -->
+
+
+          <!--p <div class="col-md-8">
+          <mat-form-field>
+                <mat-select placeholder="Select car color">
+                  <mat-option *ngFor="let car of carcolorbtn" (click)="getFilteredCars(car)"  [value]="car.color">
+                    {{ car.color }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+          </div> -->
+        
+              <!--p <p>Select Color:</p><hr>
+        <div class="col-md-12"  *ngFor="let car of carcolorbtn">
+          <mat-checkbox role="button" (click)="getFilteredCars(car)">{{car.color}}</mat-checkbox>
+        </div> -->
+
+            <!-- This is bootstrap check box list for sorting the color
+          <div class="col-md-12" *ngFor="let car of carcolorbtn" >
+          <input type="checkbox" role="button" (click)="getFilteredCars(car)"> <label>{{car.color}}</label>  
+         </div> -->
+         <!-- <br> <br>
+         <p>select car model</p>
+         
+         <select>
+            <option *ngFor="let models of allCars">{{models.model}}</option>
+        </select>
+        
+        <mat-slider thumbLabel tickInterval="1"></mat-slider>-->
+        <div class="col-md-12">
+          <mat-card>
+            <mat-card-content>
+              <section class="example-section">
+                <mat-form-field class="example-margin">
+                  <input matInput type="text" placeholder="Prise" [(ngModel)]="value">
+                </mat-form-field>
+              </section>
+              <mat-slider
+                  [max]="max"
+                  [min]="min"
+                  [step]="step"
+                  [(ngModel)]="value"
+                  [vertical]="vertical">
+              </mat-slider>
+            </mat-card-content>
+          </mat-card>
+        </div>
+    </div> 
+     
+
+    <div class="col-md-9" >
+        <mat-paginator [length]="100"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
+      <div class="row" *ngIf="dashboardrendering">
+          <div class="col-md-3" *ngFor="let car of carbtn">
+              <mat-card id="cardetails">
+                  <a role="button" (click)="gerFilteredCars(car.name)">
+                  <h6 role="button" (click)="oncardetails()">{{car.name}}</h6> 
+                  <img src="{{car.path}}" height="150px" class="img-responsive" >    
+                </a>
+ 
+             </mat-card>
+          </div>
+      </div>
+
+        
+       
+  
+        <div class="col-md-12" *ngIf  = "cardetialsort; else sortcolor">
+                <div class="row">
+                        <!-- <div class="col-md-3" id="cardetails" *ngFor="let car of cars" >
+                            <h5 role="button" (click)="oncardetails()">{{car.name}}</h5> <hr>
+                            <p> Model: {{car.model}} </p>
+                            <p> Color: {{car.color}}</p> 
+                       </div> -->
+                       <div class="col-md-4" *ngFor="let car of cars">
+                          <mat-card id = "cardetails"  >
+                              <h6 role = "button" (click)="oncardetails()">{{car.name}}</h6> <hr>
+                              <img src = "{{car.path}}" height="180px" class="img-responsive">
+                              <p> Model: {{car.model}} </p>
+                              <p> Color: {{car.color}}</p> 
+                             
+                         </mat-card>
+                       </div>
+                       
+
+                </div>
+        </div>
+      
+
+        <ng-template #sortcolor>
+                <div class="col-md-12">
+                        <div class="row">
+                          <h5></h5>
+                          <div class="col-md-4" *ngFor="let car of carcolordata">
+                              <mat-card id="colorcardetails"  >
+                                  <img src = "{{car.path}}" height="180px" class="img-responsive">
+                                  <h6>{{car.name}}</h6> <hr>
+                                 
+                                  <p> Model: {{car.model}} </p>
+                                  <p> Color: {{car.color}}</p> 
+                             
+                              </mat-card>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    
+        </ng-template>
+   
+
+        <!-- <mat-slider min="1" max="5" step="0.5" value="1.5"></mat-slider> -->
+      
+    </div>
+
+  </div>
+
+    <!-- colored car filter -->
+    
+
+</div>

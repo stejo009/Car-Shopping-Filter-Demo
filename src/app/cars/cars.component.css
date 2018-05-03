@@ -1,0 +1,43 @@
+#cardetails{
+    /* border: 1px solid gray;
+    margin: 10px; */
+    /* padding: 10px;
+    border-radius: 3px; */
+    margin-left: 10px;
+    margin-top: 10px;
+    width:100%;
+    
+}
+#colorcardetails{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* @media screen and (max-width: 992px) {
+    body {
+      background-color: blue;
+    }
+  } */
+
+
+#cardetails:hover{
+    border: 0.5px solid rgb(182, 180, 180) ; 
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+
+.col-md-12{
+    padding-top: 10px;
+    text-transform: uppercase;
+}
+.col-md-8{
+    padding-top: 20px;
+}
+
+.mat-raised-button{
+    width: 50%;
+}
+h5{
+    padding-top: 20px;
+}

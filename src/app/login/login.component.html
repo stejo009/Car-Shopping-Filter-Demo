@@ -1,0 +1,69 @@
+<!-- <mat-toolbar color="primary">
+        <span>My Application</span>
+        <button mat-button>Click me!</button>
+    
+      </mat-toolbar> -->
+      <mat-spinner style="top:30%;left:50%;position: absolute" *ngIf = "wait"></mat-spinner>
+    <div class="container"  *ngIf  = "!state; else test1">
+            <div class="example-container">
+                    <br><h5>Login</h5><hr>
+                    <p> Admin username:{{username}}</p>
+                    <p>Admin Password:{{password}}</p>
+                    <p id="loginmsg">{{status}}</p><br>
+
+                    <form (ngSubmit)="onuserdata()">
+                        <mat-form-field>
+                            <input matInput placeholder="Username" type="text" name="eamil" [(ngModel)]="name" required>
+                            <!-- <span matPrefix>$&nbsp;</span>
+                            <span matSuffix>.00</span> -->
+                        </mat-form-field>
+                    
+                          <mat-form-field>
+                              <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" name="password"  [(ngModel)]="pass" required> 
+                              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                          </mat-form-field>
+                            <button mat-raised-button color="accent">Click me!</button>
+                    </form>
+                    <br>
+            </div>
+
+  
+  <!-- if status is fall then go to inside after login status will be change then goes to dashboard -->
+
+
+    <div class="col-md-6">
+      <h5>Register here</h5><hr>
+      <div class="row">
+
+        <div class="col-md-6">
+                <form (ngSubmit)="onRegister()">
+
+                        <mat-form-field>
+                            <input matInput placeholder="Name" type="text" name="rname" [(ngModel)]="rname" required>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                                <input matInput placeholder="Username" type="text" name="username" [(ngModel)]="username" required>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Password" type="password" name="password" [(ngModel)]="rpass" required>
+                        </mat-form-field>
+                        
+                        <mat-form-field>
+                                <input matInput placeholder="Mobile no" type="number" name="mobno" [(ngModel)]="mobno" required>
+                        </mat-form-field>
+
+                        <button mat-raised-button color="accent">Register Here</button>
+                </form>
+        </div>
+      </div>
+   </div>
+  </div>
+
+
+<ng-template #test1>
+<app-cars ></app-cars>
+
+</ng-template>
+
